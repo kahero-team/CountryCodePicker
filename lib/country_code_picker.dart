@@ -53,6 +53,7 @@ class CountryCodePicker extends StatefulWidget {
   final double borderRadius;
   final double borderWidth;
   final double borderHeight;
+  final double borderThickness;
   final Color borderColor;
   /// Use Icon
   final bool icon;
@@ -85,6 +86,7 @@ class CountryCodePicker extends StatefulWidget {
     this.borderRadius,
     this.borderWidth,
     this.borderHeight,
+    this.borderThickness,
     this.borderColor,
     this.icon,
     this.iconSize,
@@ -133,7 +135,9 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           border: Border.all(
-              color: widget.borderColor??Color(0xFFD1D1D1), style: BorderStyle.solid),
+              width: widget.borderThickness??1,
+              color: widget.borderColor??Color(0xFFD1D1D1),
+              style: BorderStyle.solid),
         ),
         child: _buildButton(),
       ): _buildButton();
