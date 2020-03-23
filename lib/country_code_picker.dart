@@ -53,9 +53,11 @@ class CountryCodePicker extends StatefulWidget {
   final double borderRadius;
   final double borderWidth;
   final double borderHeight;
+  final Color borderColor;
   /// Use Icon
   final bool icon;
   final double iconSize;
+  final Color iconColor;
 
   CountryCodePicker({
     this.onChanged,
@@ -83,8 +85,10 @@ class CountryCodePicker extends StatefulWidget {
     this.borderRadius,
     this.borderWidth,
     this.borderHeight,
+    this.borderColor,
     this.icon,
     this.iconSize,
+    this.iconColor,
   });
 
   @override
@@ -129,7 +133,7 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           border: Border.all(
-              color: Color(0xFFD1D1D1), style: BorderStyle.solid),
+              color: widget.borderColor??Color(0xFFD1D1D1), style: BorderStyle.solid),
         ),
         child: _buildButton(),
       ): _buildButton();
@@ -186,7 +190,7 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
             overflow: widget.textOverflow,
           ),
         ),
-        widget.icon == true? Icon(Icons.arrow_drop_down, color: Color(0xFF026178), size: widget.iconSize ?? 34): Container(),
+        widget.icon == true? Icon(Icons.arrow_drop_down, color: widget.iconColor ?? Color(0xFF026178), size: widget.iconSize ?? 34): Container(),
       ],
     ),
   );
