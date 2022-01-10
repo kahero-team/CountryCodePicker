@@ -94,6 +94,31 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
               ),
+              CountryCodePicker(
+                // initialSelection:
+                //     widget.controller.values['country'] != '' &&
+                //             widget.controller.values['country'] != null
+                //         ? widget.controller.values['country']
+                //         : null,
+                initialSelection: null,
+                showCountryOnly: true,
+                showOnlyCountryWhenClosed: true,
+                alignLeft: true,
+                border: true,
+                borderRadius: 10.0,
+                borderWidth: 404.0,
+                borderHeight: 60.0,
+                icon: true,
+                iconSize: 35,
+                onChanged: (countryCode) {
+                  // FocusScope.of(context).requestFocus(FocusNode());
+                  // if (countryCode.code != 'PH') {
+                  //   widget.controller.save('mobileNo')('');
+                  // }
+                  // widget.controller.save('country')(countryCode.code);
+                  // widget.onCountryChange(countryCode.code);
+                },
+              )
             ],
           ),
         ),

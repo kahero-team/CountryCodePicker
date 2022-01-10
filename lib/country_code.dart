@@ -1,4 +1,3 @@
-import 'package:country_code_picker/country_codes.dart';
 import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -22,24 +21,11 @@ class CountryCode {
   final String dialCode;
 
   CountryCode({
-    this.name,
-    this.flagUri,
-    this.code,
-    this.dialCode,
+    required this.name,
+    required this.flagUri,
+    required this.code,
+    required this.dialCode,
   });
-
-  factory CountryCode.fromCode(String isoCode) {
-    final Map<String, String> jsonCode = codes.firstWhere(
-      (code) => code['code'] == isoCode,
-      orElse: () => null,
-    );
-
-    if (jsonCode == null) {
-      return null;
-    }
-
-    return CountryCode.fromJson(jsonCode);
-  }
 
   CountryCode localize(BuildContext context) {
     return this
@@ -47,7 +33,7 @@ class CountryCode {
           CountryLocalizations.of(context)?.translate(this.code) ?? this.name;
   }
 
-  factory CountryCode.fromJson(Map<String, dynamic> json) {
+  factory CountryCode.fromJson(Map<dynamic, dynamic> json) {
     return CountryCode(
       name: json['name'],
       code: json['code'],
@@ -59,12 +45,12 @@ class CountryCode {
   @override
   String toString() => "$dialCode";
 
-  String toLongString([BuildContext context]) =>
+  String toLongString(BuildContext context) =>
       "$dialCode ${toCountryStringOnly(context)}";
 
-  String toCountryStringOnly([BuildContext context]) {
+  String toCountryStringOnly(BuildContext? context) {
     if (context != null) {
-      return CountryLocalizations.of(context)?.translate(code) ?? name;
+      return CountryLocalizations.of(context)?.translate(code) ?? this.name;
     }
     return '$name';
   }
