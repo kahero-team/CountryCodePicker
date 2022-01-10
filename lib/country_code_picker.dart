@@ -87,7 +87,7 @@ class CountryCodePicker extends StatefulWidget {
     this.borderRadius = 10.0,
     this.borderWidth = 400.0,
     this.borderHeight = 50.0,
-    this.borderThickness = 1,
+    this.borderThickness = 1.0,
     this.borderColor = const Color(0xFFD1D1D1),
     this.icon = true,
     this.iconSize = 34.0,
