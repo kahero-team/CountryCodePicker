@@ -195,7 +195,8 @@ class _CountryCodePickerState extends State<CountryCodePicker> {
                 widget.showOnlyCountryWhenClosed
                     ? selectedItem.toCountryStringOnly(context)
                     : selectedItem.toString(),
-                style: widget.textStyle ?? Theme.of(context).textTheme.button,
+                style:
+                    widget.textStyle ?? Theme.of(context).textTheme.bodySmall,
                 overflow: widget.textOverflow,
               ),
             ),
